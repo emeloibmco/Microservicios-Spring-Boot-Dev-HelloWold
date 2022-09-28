@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Card from "./shared/Card"
 import Button from "./shared/Button"
 
 function ChatAdios({handleAdd}) {
@@ -7,21 +6,22 @@ function ChatAdios({handleAdd}) {
     const [message, setMessage] = useState('')
     const role = 'adios'
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const newChat = {
-            text,
-            role,
-        }
-        handleAdd(newChat)
+    const handleTextChange  = (e) => {
+      setMessage('Adiós.')
+    setText(e.target.value)
     }
 
   return (
-    <div className="centered" >
-        <form onSubmit={handleSubmit}>
-        <Button type="submit" version='secondary'>{text}</Button>
-        </form>
-    </div>
+    <form onSubmit={handleTextChange} className='centered'>
+      <div className="input-group">
+        <input onChange={handleTextChange} 
+        type="text" 
+        placeholder = "Adiós."
+        value = {text}
+        />
+        <Button type="submit" >Enviar</Button>
+      </div>
+    </form>
   )
 }
 

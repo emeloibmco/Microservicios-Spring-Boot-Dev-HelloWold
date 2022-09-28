@@ -5,12 +5,15 @@ import ChatData from './components/shared/ChatData'
 import ChatForm from './components/ChatForm'
 import Header from './components/Header'
 import ChatAdios from './components/ChatAdios'
+import Card from './components/shared/Card'
+import Button from './components/shared/Button'
+import BtnSubmit from './components/BtnSubmit'
+
 
 function App() {
   const [chat, setChat] = useState('') //ChatData
 
   const addChat = (newChat) => {
-    newChat.id = uuidv4()
     setChat([newChat, ...chat])
   }
 
@@ -18,8 +21,14 @@ function App() {
     <>
     <Header/>
     <div className='container'>
-      <ChatForm handleAdd={addChat}/>
-      <ChatAdios handleAdd={addChat}/>
+      <Card>
+        <ChatForm />
+        <ChatAdios />
+        <div className='btn-send'> 
+          <BtnSubmit handleAdd={addChat}/>
+        </div>
+      </Card>
+
       <ChatList chat = {chat} />
       
     </div>

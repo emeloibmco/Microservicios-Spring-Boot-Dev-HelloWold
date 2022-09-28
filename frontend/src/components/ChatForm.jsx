@@ -1,27 +1,28 @@
 import { useState } from "react"
-import Card from "./shared/Card"
 import Button from "./shared/Button"
 
-function ChatForm({handleAdd}) {
+function ChatForm() {
     const [text, setText] = useState('¿Hola?')
     const [message, setMessage] = useState('')
     const role = 'hola'
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const newChat = {
-            text,
-            role,
-        }
-        handleAdd(newChat)
-    }
+    const handleTextChange  = (e) => {
+        setMessage('¿Hola?')
+      setText(e.target.value)
+  }
 
   return (
-    <div className="centered" >
-        <form onSubmit={handleSubmit}>
-        <Button type="submit" version='secondary'>{text}</Button>
-        </form>
-    </div>
+    <form onSubmit={{handleTextChange}} className='centered'>
+      <h2> Ingresa los textos de saludo y despedida.</h2> 
+      <div className="input-group">
+        <input onChange={handleTextChange} 
+        type="text" 
+        placeholder = "¿Hola?"
+        value = {text}
+        />
+        <Button type="submit" >Enviar</Button>
+      </div>
+    </form>
   )
 }
 
