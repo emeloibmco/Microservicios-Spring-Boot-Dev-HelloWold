@@ -1,13 +1,16 @@
 import {motion, AnimatePresence} from 'framer-motion'
-import PropTypes from 'prop-types'
+import { useContext } from 'react'
+import ChatContext from '../context/ChatContext'
 import ChatItem from './ChatItem'
 
 
-function ChatList({chat}) {
+function ChatList() {
+    const {chat} = useContext(ChatContext)
+
     if(!chat || chat.length === 0){
         return <p> Aún no ha iniciado el chat </p>
     }
-
+    //console.log(chat)
     return (
       <div className="chat-list">
         <AnimatePresence>
@@ -28,17 +31,6 @@ function ChatList({chat}) {
       </div>
     )
 
-}
-
-ChatList.propTypes = {
-  chat: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      role: PropTypes.string,
-      //source: PropTypes.string.isRequired,
-    })
-  )
 }
 
 export default ChatList

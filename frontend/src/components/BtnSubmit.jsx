@@ -1,27 +1,27 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Button from "./shared/Button"
+import ChatContext from "../context/ChatContext"
 
-function BtnSubmit({handleAdd}) {
-    const [text, setText] = useState('¿Hola?')
+
+function BtnSubmit() {
     const role = 'hola'
 
-    const textHola = '¿Hola?'
-    const textAdios = 'Adiós.'
+    const {textHola, addChat} = useContext(ChatContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setText(textHola)
+        const text = textHola 
         const newChat = {
             text,
             role,
         }
-        handleAdd(newChat)
+        addChat(newChat)
+        //console.log(newChat)
     }
-
 
   return (
     <form onSubmit={handleSubmit} >
-       <Button type="submit" version="secondary" >Enviar saludo</Button>
+       <Button type="submit" version="secondary" >Saludo</Button>
     </form>
   )
 }

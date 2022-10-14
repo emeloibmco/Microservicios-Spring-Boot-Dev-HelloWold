@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types'
 import Card from "./shared/Card"
 import {useState} from "react"
+import {useContext} from 'react'
+import ChatContext from '../context/ChatContext'
 
 function ChatItem({item}) {
+  
     const [text, setText] = useState("This is an example of a feedback item")
+
+    console.log(item)
 
   return (
     <Card role={item.role}>
