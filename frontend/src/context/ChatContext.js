@@ -5,12 +5,17 @@ const ChatContext = createContext()
 export const ChatProvider = ({children}) => {
 
     const [textHola, setTextHola] = useState([])
+    const [textAdios, setTextAdios] = useState([])
 
     const [chat, setChat] = useState([])
 
     const addHola = async(text) => {
         setTextHola(text)
         //console.log(textHola)
+    }
+
+    const addAdios = async(text) => {
+        setTextAdios(text)
     }
 
     const addChat = async (newChat) => {
@@ -21,8 +26,10 @@ export const ChatProvider = ({children}) => {
     return (
         <ChatContext.Provider value = {{
             textHola,
+            textAdios,
             chat,
             addHola,
+            addAdios,
             addChat,
         }}>
             {children}

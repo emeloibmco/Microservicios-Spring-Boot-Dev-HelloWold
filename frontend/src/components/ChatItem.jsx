@@ -8,7 +8,7 @@ function ChatItem({item}) {
   
     const [text, setText] = useState("This is an example of a feedback item")
 
-    console.log(item)
+    //console.log(item)
 
   return (
     <Card role={item.role}>

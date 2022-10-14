@@ -24,7 +24,7 @@ function ChatForm() {
       <div className="input-group">
         <input onChange={handleTextChange}
           type="text" 
-          placeholder="¿Hola?"
+          placeholder=""
           value = {text}
         />
         <Button type="submit"> Enviar </Button>
