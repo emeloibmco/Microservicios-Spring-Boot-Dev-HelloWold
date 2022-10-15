@@ -10,8 +10,17 @@ export const ChatProvider = ({children}) => {
     const [chat, setChat] = useState([])
 
     const addHola = async(text) => {
-        setTextHola(text)
-        //console.log(textHola)
+        const response = await fetch(`http://localhost:65230/saludar?Saludo=${text}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(text),
+            mode: 'no-cors',
+        })
+
+        //setTextHola(text)
+        //console.log(text)
     }
 
     const addAdios = async(text) => {

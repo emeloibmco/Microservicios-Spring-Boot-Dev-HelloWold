@@ -9,6 +9,16 @@
             "projectName": "bye_service",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HelloServiceApplication<hello_service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.hello_service.HelloServiceApplication",
+            "projectName": "hello_service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
