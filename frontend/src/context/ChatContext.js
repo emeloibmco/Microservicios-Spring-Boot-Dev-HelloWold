@@ -19,8 +19,22 @@ export const ChatProvider = ({children}) => {
             mode: 'no-cors',
         })
 
-        setTextHola(text)
+        //setTextHola(text)
         //console.log(text)
+    }
+
+    const getHola = async () => {
+        const response = await fetch(`http://localhost:65230/saludar`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'no-cors',
+        } )
+        //data = await response.json()
+        const data = 'Holiwi'
+        setTextHola(data)
+        console.log(data)
     }
 
     const addAdios = async(text) => {
@@ -33,7 +47,7 @@ export const ChatProvider = ({children}) => {
             mode: 'no-cors',
         })
 
-        setTextAdios(text)
+        //setTextAdios(text)
     }
 
     const addChat = async (newChat) => {
@@ -49,6 +63,7 @@ export const ChatProvider = ({children}) => {
             addHola,
             addAdios,
             addChat,
+            getHola,
         }}>
             {children}
         </ChatContext.Provider>
