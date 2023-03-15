@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.bye_service.entity.ByeEntity;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @RestController
 @RequestMapping("/adios")
 public class ByeController {
     private ByeEntity Agente = new ByeEntity();
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping()
     public String Despedida(){
         return Agente.get_Despedida();

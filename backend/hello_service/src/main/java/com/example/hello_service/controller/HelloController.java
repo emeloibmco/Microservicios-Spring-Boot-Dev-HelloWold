@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RestController
@@ -20,6 +20,7 @@ public class HelloController {
 
     private HelloEntity Agente = new HelloEntity();
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping()
     public String saludar() {
         return  this.Agente.get_Saludo();

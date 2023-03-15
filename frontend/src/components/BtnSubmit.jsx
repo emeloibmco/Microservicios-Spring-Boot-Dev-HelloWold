@@ -7,46 +7,27 @@ import { v4 } from 'uuid'
 function BtnSubmit() {
     const role = 'hola'
     const id = v4()
+    let text
 
-    const {textHola, addChat, getHola} = useContext(ChatContext)
+    const {textHola, addChat} = useContext(ChatContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         
-        const options = {method: 'GET',mode:'no-cors'};
+        const options = {method: 'GET',mode:'cors'};
 
-        const saludo = fetch('http://localhost:65230/saludar', {
-          method: 'GET',
-          mode: 'cors',
-          headers: {
-          "Accept": "application/json",
-          'Content-Type': 'application/json'
-          }
-        }
+        const saludo = fetch('http://localhost:65230/saludar', options)
+        .then(response => response.text())
+        .catch(err => console.error(err));
 
-        )
-        .then(response => response.json())
-        .then(response => console.log(response))
+        text = await saludo
 
-        .catch(err => {
-          console.log("fetch error " + err)
-          //console.error(err)
-        });
-
-        let text 
-        const printSaludo = async() => {
-        text = await saludo;
-        console.log(text);
-        }
-        //console.log(text)
-        //const text = textHola 
         const newChat = {
             text,
             role,
             id,
         }
         addChat(newChat)
-        //console.log(newChat)
     }
 
   return (
