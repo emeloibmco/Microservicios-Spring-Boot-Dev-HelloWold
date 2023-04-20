@@ -13,11 +13,16 @@ En esta guía encontrará el paso a paso y las herramientas para desarrollar una
     4. []
     5. [Pruebas de las llamadas API usando Postman](#pruebas-de-las-llamadas-api-usando-postman)
 4. [Desarrollo del frontend](#desarrollo-del-frontend)
+
 5. [Despliegue de la aplicación](#despliegue-de-la-aplicación)
+
+
 6. [Autores](#autores)
 
 ## Pre-requisitos
 - [Postman](https://www.postman.com/downloads/)
+- [Clonar este repositorio de forma local, para tener acceso a la carpeta WorkShop](https://github.com/emeloibmco/Microservicios-Spring-Boot-Dev-HelloWold)
+
 
 ## Presentación de la aplicación a desarrollar
 
