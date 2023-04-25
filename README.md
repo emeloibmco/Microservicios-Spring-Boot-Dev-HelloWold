@@ -28,7 +28,7 @@ En esta guía encontrará el paso a paso y las herramientas para desarrollar una
 - [VS Code Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 - [SpringBoot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
 - [Postman](https://www.postman.com/downloads/)
-- [Clonar este repositorio](https://github.com/emeloibmco/Microservicios-Spring-Boot-Dev-HelloWold)  de forma local, para tener acceso a la carpeta Workshop
+- [Clonar este repositorio](https://github.com/sofiaponteb/Microservicios-Spring-Boot-Dev-HelloWorld-Workshop)  de forma local, para tener acceso al código del Workshop
 
 ## Aplicación a desarrollar
 La aplicación presentada en esta guía contiene dos microservicios, los cuales reciben llamadas API que modifican o leen una variable de texto, estas variables son mostradas en un frontend a modo de chat. 
