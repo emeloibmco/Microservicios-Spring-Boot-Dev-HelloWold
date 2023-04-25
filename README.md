@@ -35,10 +35,10 @@ La aplicación presentada en esta guía contiene dos microservicios, los cuales 
 </br>
 </br>
 La arquitectura de la aplicación es la siguiente:
-<p align="center"><img width="400" src="App/assets/app/architecture.png"></p>
+<p align="center"><img width="400" src="assets/app/architecture.png"></p>
 </br>
 La interfaz de la aplicación se presenta a continuación:
-<p align="center"><img width="400" src="App/assets/app/architecture.png"></p>
+<p align="center"><img width="400" src="assets/app/front.png"></p>
 Los botones de la parte superior permiten hacer llamadas del tipo API POST al backend, permitiendo modificar los valores de las variables. De un modo similar, los botones inferiores permiten hacer llamadas del tipo API GET al backend, para así poder obtener el valor actual de la variable.
 
 
@@ -50,17 +50,17 @@ Para verificar el adecuado funcionamiento de las APIs creadas, se puede usar el 
 
 1. Ingrese a la aplicación postman y seleccione **Create new collection** en la esquina superior izquierda
 
-<p align="center"><img width="600" src="App/assets/backend/postman/nuevaColeccion.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/nuevaColeccion.png"></p>
 
 2. Aparecerá su nueva colección en el manú de la izquierda, al lado del nombre de su nueva colección seleccione los 3 puntos y dé click en **Add Request**
 
-<p align="center"><img width="600" src="App/assets/backend/postman/addRequest.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/addRequest.png"></p>
 
 3. En la parte superior seleccione **GET**, en la barra de direcciones escriba la siguiente URL:
 ```http://localhost:65230/saludar```
 A continuación, repita los pasos 2 y 3, pero esta vez creando un request **POST**
 
-<p align="center"><img width="600" src="App/assets/backend/postman/get.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/get.png"></p>
 
 4. Para probar el funcionamiento de las llamadas **POST** al microservicio de saludo, ingrese al request y seleccione la pestaña **Body**, diligencie los campos de la tabla:
 - KEY: Saludo
@@ -68,11 +68,11 @@ A continuación, repita los pasos 2 y 3, pero esta vez creando un request **POST
 
 Dé click en el botón **Send**, si el request se completa de manera correcta aparecerá el mensaje OK en la terminal.
 
-<p align="center"><img width="600" src="App/assets/backend/postman/postTest.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/postTest.png"></p>
 
 5. Para probar el funcionamiento de las llamadas **GET** al microservicio de saludo, ingrese al request y dé click en el botón **Send**. Si el request se completa de manera correcta, en la terminal aparecerá el texto que incluyó en el post que realizó en el paso anterior.
 
-<p align="center"><img width="600" src="App/assets/backend/postman/getTest.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/getTest.png"></p>
 
 6. Para probar el microervicio de despedida, se realiza de la misma forma, dé click en los 3 puntos al lado del nombre de su colección y seleccione **Add request**. En la parte superior seleccione **GET**, en la barra de direcciones escriba la siguiente URL:
 ```http://localhost:65232/adios```
