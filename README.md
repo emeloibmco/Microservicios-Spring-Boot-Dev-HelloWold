@@ -144,7 +144,7 @@ Microservicios-Spring-Boot-Dev-HelloWorld-Workshop](https://github.com/sofiapont
 
 14. Para verificar la correcta creación del microservicio, abra el archivo ```ByeServiceApplication.java``` ubicado en la ruta ``` backend > bye_service > src > main > java``` . Ingrese a la extensión de springboot en la sección izquierda de su pantalla y dé play al microservicio. Le deberá aparecer una terminal como la que se muestra a continuación:
 
-<p align="center"><img width="400" src="assets/backend/creacionProyecto/14run.png"></p>
+<p align="center"><img width="600" src="assets/backend/creacionProyecto/14run.png"></p>
 
 ### Desarrollo del microservicio
 
@@ -168,6 +168,10 @@ server.port=65232
 
 3. En nuestro microservicio solo tendremos una variable, llamada **Despedida**. Vamos a crear la clase **ByeEntity** donde se almacenará dicha variable. En el menú de la izquierda, despliegue la sección **JAVA POJECTS** y diríjase a la ruta ```bye_service > src > main > java > com > example > bye_service``` y cree un paquete ```entity```, dentro de este paquete cree una clase llamada ```ByeEntity```.
 
+
+
+
+https://user-images.githubusercontent.com/18233526/234726636-1640709c-787d-4fd0-b8f5-73938e79de19.mov
 
 
 
