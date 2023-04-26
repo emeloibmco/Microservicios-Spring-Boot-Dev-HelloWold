@@ -41,8 +41,49 @@ La interfaz de la aplicación se presenta a continuación:
 <p align="center"><img width="400" src="assets/app/front.png"></p>
 Los botones de la parte superior permiten hacer llamadas del tipo API POST al backend, permitiendo modificar los valores de las variables. De un modo similar, los botones inferiores permiten hacer llamadas del tipo API GET al backend, para así poder obtener el valor actual de la variable.
 
+### ¿Cómo ejecutar la aplicación?
+
+1. Ingrese a VS code y abre la carpeta que contiene este repositorio
+
+2. En el menú de la izquierda elija la vista de explorador de archivos. Seleccione:
+```
+backend > hello_service > src > main > java
+```
+
+3. Abra el archivo ```HelloServiceApplication.java```
+
+4. Luego de que abra este archivo, automáticamente le aparecerá un nuevo ítem en el menú de la izquierda, con el logo de SpringBoot. Dé click en este ícono:
+<p align="center"><img width="300" src="assets/app/explorer.png"></p>
+
+5. En la parte de arriba le aparecerán los dos microservicios de la apliación. Dé click en el botón de play al lado de cada uno:
+<p align="center"><img width="300" src="assets/app/runSpring.png"></p>
+
+6. Solo falta iniciar el frontEnd. Para esto, ingrese a la terminal de su equipo, y abra la carpeta que contiene los archivos del repositorio. Allí ingrese a la carpeta frontend:
+
+```
+cd frontend
+```
+
+7. Deberá descargar las dependencias de node necesarias para ejecutar el frontend. Este comando lo hará de forma automática:
+
+```
+npm install
+```
+
+8. Para ejecutar la aplicación utilice el comando
+
+```
+npm start
+```
+
+9. El comando anterior debería abrir automáticamente la app en una página en el navegador. Sin embargo, si eso no sucede, ingrese a su navegador y en la barra de direcciones ponga la siguiente dirección:
+
+```
+http://localhost:3000/
+```
 
 ## Desarrollo del BackEnd
+
 
 
 ### Pruebas de las llamadas API usando Postman
@@ -52,7 +93,7 @@ Para verificar el adecuado funcionamiento de las APIs creadas, se puede usar el 
 
 <p align="center"><img width="600" src="assets/backend/postman/nuevaColeccion.png"></p>
 
-2. Aparecerá su nueva colección en el manú de la izquierda, al lado del nombre de su nueva colección seleccione los 3 puntos y dé click en **Add Request**
+2. Aparecerá su nueva colección en el menú de la izquierda, al lado del nombre de su nueva colección seleccione los 3 puntos y dé click en **Add Request**
 
 <p align="center"><img width="600" src="assets/backend/postman/addRequest.png"></p>
 
@@ -88,6 +129,8 @@ Dé click en el botón **Send**, si el request se completa de manera correcta ap
 8. Para probar el funcionamiento de las llamadas **GET** al microservicio de despedida, ingrese al request y dé click en el botón **Send**. Si el request se completa de manera correcta, en la terminal aparecerá el texto que incluyó en el post que realizó en el paso anterior.
 
 ## Desarrollo del FrontEnd
+
+
 
 ## Despliegue de la Aplicación
 
