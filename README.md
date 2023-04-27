@@ -37,7 +37,7 @@ La arquitectura de la aplicación es la siguiente:
 <p align="center"><img width="400" src="assets/app/architecture.png"></p>
 </br>
 La interfaz de la aplicación se presenta a continuación:
-<p align="center"><img width="400" src="assets/app/front.png"></p>
+<p align="center"><img width="500" src="assets/app/front.png"></p>
 Los botones de la parte superior permiten hacer llamadas del tipo API POST al backend, permitiendo modificar los valores de las variables. De un modo similar, los botones inferiores permiten hacer llamadas del tipo API GET al backend, para así poder obtener el valor actual de la variable.
 
 ### ¿Cómo ejecutar la aplicación?
@@ -90,7 +90,7 @@ Microservicios-Spring-Boot-Dev-HelloWorld-Workshop](https://github.com/sofiapont
 
 1. Abra la carpeta del repositorio alterno en VS code. En la sección de backend le aparecerá solo el microservicio **hello_service**
 
-<p align="center"><img width="600" src="assets/backend/creacionProyecto/1carpetas.png"></p>
+<p align="center"><img width="800" src="assets/backend/creacionProyecto/1carpetas.png"></p>
 
 2. Dé click en ```ctrl+shift+P``` y escriba **java jdk** Abra la opción que aparece para instalar el JDK.
 
@@ -144,7 +144,7 @@ Microservicios-Spring-Boot-Dev-HelloWorld-Workshop](https://github.com/sofiapont
 
 14. Para verificar la correcta creación del microservicio, abra el archivo ```ByeServiceApplication.java``` ubicado en la ruta ``` backend > bye_service > src > main > java``` . Ingrese a la extensión de springboot en la sección izquierda de su pantalla y dé play al microservicio. Le deberá aparecer una terminal como la que se muestra a continuación:
 
-<p align="center"><img width="600" src="assets/backend/creacionProyecto/14run.png"></p>
+<p align="center"><img width="800" src="assets/backend/creacionProyecto/14run.png"></p>
 
 ### Desarrollo del microservicio
 
@@ -190,7 +190,15 @@ En esta clase se creará la variable de tipo string llamada **Despedida**, donde
     }
 ```
 
-4. Finalmente, crearemos la clase **ByeController**, que se encargará de recibir las llamadas API. Diríjase a la ruta ```backend > bye_service > src > main > java > com > example > bye_service``` y cree un paquete ```controllers```, dentro de este paquete cree un archivo llamado ```ByeController```.
+4. Finalmente, crearemos la clase **ByeController**, que se encargará de recibir las llamadas API. Diríjase a la ruta ```backend > bye_service > src > main > java > com > example > bye_service``` y cree un paquete ```controllers```, dentro de este paquete cree una clase llamada ```ByeController```.
+
+
+
+
+https://user-images.githubusercontent.com/18233526/234727033-ec3894a8-0370-48c9-9d3e-342a62ded406.mov
+
+
+
 
 - Al principio del archivo, debajo de la llamada al paquete **com.example.bye_service.controller**, inserte el siguiente código, que importa todos los elementos necesarios para manejar llamadas API, tener acceso a la variable creada, y poder establecer conexión con el frontend:
 
@@ -248,17 +256,17 @@ Para verificar el adecuado funcionamiento de las APIs creadas, se puede usar el 
 
 1. Ingrese a la aplicación postman y seleccione **Create new collection** en la esquina superior izquierda
 
-<p align="center"><img width="600" src="assets/backend/postman/nuevaColeccion.png"></p>
+<p align="center"><img width="800" src="assets/backend/postman/nuevaColeccion.png"></p>
 
 2. Aparecerá su nueva colección en el menú de la izquierda, al lado del nombre de su nueva colección seleccione los 3 puntos y dé click en **Add Request**
 
-<p align="center"><img width="600" src="assets/backend/postman/addRequest.png"></p>
+<p align="center"><img width="800" src="assets/backend/postman/addRequest.png"></p>
 
 3. En la parte superior seleccione **GET**, en la barra de direcciones escriba la siguiente URL:
 ```http://localhost:65230/saludar```
 A continuación, repita los pasos 2 y 3, pero esta vez creando un request **POST**
 
-<p align="center"><img width="600" src="assets/backend/postman/get.png"></p>
+<p align="center"><img width="800" src="assets/backend/postman/get.png"></p>
 
 4. Para probar el funcionamiento de las llamadas **POST** al microservicio de saludo, ingrese al request y seleccione la pestaña **Body**, diligencie los campos de la tabla:
 - KEY: Saludo
@@ -266,11 +274,11 @@ A continuación, repita los pasos 2 y 3, pero esta vez creando un request **POST
 
 Dé click en el botón **Send**, si el request se completa de manera correcta aparecerá el mensaje OK en la terminal.
 
-<p align="center"><img width="600" src="assets/backend/postman/postTest.png"></p>
+<p align="center"><img width="800" src="assets/backend/postman/postTest.png"></p>
 
 5. Para probar el funcionamiento de las llamadas **GET** al microservicio de saludo, ingrese al request y dé click en el botón **Send**. Si el request se completa de manera correcta, en la terminal aparecerá el texto que incluyó en el post que realizó en el paso anterior.
 
-<p align="center"><img width="600" src="assets/backend/postman/getTest.png"></p>
+<p align="center"><img width="800" src="assets/backend/postman/getTest.png"></p>
 
 6. Para probar el microervicio de despedida, se realiza de la misma forma, dé click en los 3 puntos al lado del nombre de su colección y seleccione **Add request**. En la parte superior seleccione **GET**, en la barra de direcciones escriba la siguiente URL:
 ```http://localhost:65232/adios```
