@@ -352,8 +352,140 @@ Allí deberás ver una pantalla azul:
 
 En este momento, a la aplicación web le hacen falta los dos elementos correspondientes a las APIs que se comunican con el microservicio **bye_service** del backend. Esto será lo que realizaremos en esta sección.
 
-1. 
+1. En la ruta ```frontend > src > components``` cree un archivo de nombre ```ChatAdios.jsx```, e inserte el siguiente código:
 
+```
+import { useState, useContext } from "react"
+import Button from "./shared/Button"
+import ChatContext from "../context/ChatContext"
+
+function ChatAdios() {
+
+  const [text, setText] = useState('Adiós.')
+
+  const {addAdios} = useContext(ChatContext)
+
+  const handleTextChange = (e) => {
+    setText(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    addAdios(text)
+  }
+  return (
+    <form onSubmit={handleSubmit} className='centered'>
+      <div className="input-group">
+        <input onChange={handleTextChange}
+          type="text" 
+          placeholder=""
+          value = {text}
+        />
+        <Button type="submit"> Enviar </Button>
+      </div>
+    </form>
+  )
+}
+
+export default ChatAdios
+```
+
+El código anterior, se encarga de crear la variable de texto que se recibirá en el formulario, en la función **handleTextChange** se obtiene texto ingesado, y en la función **handleSubmit** se modifica el valor de la variable con el texto ingresado para hacer la llamada API. El return en la parte final del código crea el elemento que aparecerá en la página web.
+
+2. Para incluir la sección que recién se creó, regrese al archivo ```App.js```, allí importe el nuevo archivo en la sección del encabezado:
+
+```
+import ChatAdios from './components/ChatAdios'
+```
+
+Dentro de la sección **Card**, incluya la siguiente línea de código justo debajo de ```<ChatForm />```:
+
+```
+<ChatAdios />
+```
+
+3. Al volver a la página web, aparecerá un error ```addAdios is not defined```. Por ello, procederemos a crear la llamada API post. Ingrese al archivo ```frontend > src > components > context > ChatContext.js```, y debajo de la línea 24 (que termina la función addHola) ingrese el siguiente fragmento de código:
+
+```
+    const addAdios = async(text) => {
+        const response = await fetch(`http://localhost:65232/adios?Despedida=${text}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(text),
+            mode: 'no-cors',
+        })
+
+        //setTextAdios(text)
+    }
+```
+
+Esta función que acaba de agregar, se encarga de enviar el texto almacenado en la variable **text** hacia el microservicio **bye_service** en el backend, por medio de una llamada API post. Note que se incluye el puerto que se configuró para el microservicio previamente, así como el nombre de la variable string que se tiene en el backend (Despedida). Comentada se encuentra una línea de código que sirve para realizar pruebas sin ejecutar el backend.
+
+<p align="center"><img width="800" src="assets/frontend/8boton.png"></p>
+
+4. Ahora, lo único que falta es crear el elemento que hará la llamada API get para mostrar el texto almacenado en el backend. En la ruta ```frontend > src > components``` cree un archivo de nombre ```BtnResponse.jsx```, e inserte el siguiente código:
+
+```
+import { useContext } from "react"
+import Button from "./shared/Button"
+import ChatContext from "../context/ChatContext"
+import { v4 } from 'uuid'
+
+
+function BtnResponse() {
+    const role = 'adios'
+        const id = v4()
+    let text
+
+    const {textAdios, addChat} = useContext(ChatContext)
+
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+        
+        const options = {method: 'GET',mode:'cors'};
+
+        const saludo = fetch('http://localhost:65232/adios', options)
+        .then(response => response.text())
+        .catch(err => console.error(err));
+
+        text = await saludo
+
+        const newChat = {
+            text,
+            role,
+            id,
+        }
+        addChat(newChat)
+    }
+  return (
+    <form onSubmit={handleSubmit} >
+       <Button type="submit" version="secondary" >Despedida</Button>
+    </form>
+  )
+}
+
+export default BtnResponse
+```
+
+Lo que se hace en el código anterior, es obtener el valor de la variable cuando se oprime el botón, por medio de una llamada API get, en la cual se incluye el puerto del mciroservicio **bye_service** y la respuesta obtenida del backend se almacena en la variable **text**. Posteriormente se crea un elemento de tipo Chat que contiene el texto recibido. Finalmente, en el return se incluye el botón que se mostrará en la interfaz.
+
+5. Finalmente, para agregar el botón recién creado a la página web, en el archivo ```App.js```, incluya la siguiente línea de código, justo debajo de la línea ```<BtnSubmit />```:
+
+```
+<BtnResponse />
+```
+
+También, importe el archivo en la sección del encabezado:
+
+```
+import BtnResponse from './components/BtnResponse'
+```
+
+6. Con esto, damos por finalizado el desarrollo de la aplicación de microservicios:
+
+<p align="center"><img width="800" src="assets/frontend/9boton.png"></p>
 
 ## Despliegue de la Aplicación
 
