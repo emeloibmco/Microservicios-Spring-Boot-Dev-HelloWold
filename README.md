@@ -12,7 +12,8 @@ En esta guía encontrará el paso a paso y las herramientas para desarrollar una
     2. [Desarrollo del backend](#desarrollo-del-backend)
     3. [Pruebas de las llamadas API usando Postman](#pruebas-de-las-llamadas-api-usando-postman)
 4. [Desarrollo del frontend](#desarrollo-del-frontend)
-
+    1. [Adición de elementos a la interfaz](#adición-de-elementos-a-la-interfaz)
+    2. [Creación de elementos que interactúan con APIs](#creación-de-elementos-que-interactúan-con-apis)
 5. [Despliegue de la aplicación](#despliegue-de-la-aplicación)
 
 6. [Referencias](#referencias)
@@ -37,7 +38,7 @@ La arquitectura de la aplicación es la siguiente:
 <p align="center"><img width="400" src="assets/app/architecture.png"></p>
 </br>
 La interfaz de la aplicación se presenta a continuación:
-<p align="center"><img width="500" src="assets/app/front.png"></p>
+<p align="center"><img width="400" src="assets/app/front.png"></p>
 Los botones de la parte superior permiten hacer llamadas del tipo API POST al backend, permitiendo modificar los valores de las variables. De un modo similar, los botones inferiores permiten hacer llamadas del tipo API GET al backend, para así poder obtener el valor actual de la variable.
 
 ### ¿Cómo ejecutar la aplicación?
@@ -90,7 +91,7 @@ Microservicios-Spring-Boot-Dev-HelloWorld-Workshop](https://github.com/sofiapont
 
 1. Abra la carpeta del repositorio alterno en VS code. En la sección de backend le aparecerá solo el microservicio **hello_service**
 
-<p align="center"><img width="800" src="assets/backend/creacionProyecto/1carpetas.png"></p>
+<p align="center"><img width="600" src="assets/backend/creacionProyecto/1carpetas.png"></p>
 
 2. Dé click en ```ctrl+shift+P``` y escriba **java jdk** Abra la opción que aparece para instalar el JDK.
 
@@ -144,7 +145,7 @@ Microservicios-Spring-Boot-Dev-HelloWorld-Workshop](https://github.com/sofiapont
 
 14. Para verificar la correcta creación del microservicio, abra el archivo ```ByeServiceApplication.java``` ubicado en la ruta ``` backend > bye_service > src > main > java``` . Ingrese a la extensión de springboot en la sección izquierda de su pantalla y dé play al microservicio. Le deberá aparecer una terminal como la que se muestra a continuación:
 
-<p align="center"><img width="800" src="assets/backend/creacionProyecto/14run.png"></p>
+<p align="center"><img width="400" src="assets/backend/creacionProyecto/14run.png"></p>
 
 ### Desarrollo del microservicio
 
@@ -171,11 +172,6 @@ server.port=65232
 
 
 
-https://user-images.githubusercontent.com/18233526/234726847-e304f08f-19a4-4a23-b24a-d7491490800b.mov
-
-
-
-
 En esta clase se creará la variable de tipo string llamada **Despedida**, donde se almacenará el texto ingresado en la página web. Asímismo, se crea el get y el set correspondiente a esta variable. Ingrese el siguiente código en su archivo ```ByeEntity.java```, dentro de la clase **ByeEntity**:
 
 ```
@@ -190,15 +186,7 @@ En esta clase se creará la variable de tipo string llamada **Despedida**, donde
     }
 ```
 
-4. Finalmente, crearemos la clase **ByeController**, que se encargará de recibir las llamadas API. Diríjase a la ruta ```backend > bye_service > src > main > java > com > example > bye_service``` y cree un paquete ```controllers```, dentro de este paquete cree una clase llamada ```ByeController```.
-
-
-
-
-https://user-images.githubusercontent.com/18233526/234727033-ec3894a8-0370-48c9-9d3e-342a62ded406.mov
-
-
-
+4. Finalmente, crearemos la clase **ByeController**, que se encargará de recibir las llamadas API. Diríjase a la ruta ```backend > bye_service > src > main > java > com > example > bye_service``` y cree un paquete ```controllers```, dentro de este paquete cree un archivo llamado ```ByeController```.
 
 - Al principio del archivo, debajo de la llamada al paquete **com.example.bye_service.controller**, inserte el siguiente código, que importa todos los elementos necesarios para manejar llamadas API, tener acceso a la variable creada, y poder establecer conexión con el frontend:
 
@@ -252,21 +240,21 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 ```
 
 ### Pruebas de las llamadas API usando Postman
-Para verificar el adecuado funcionamiento de las APIs creadas, se puede usar el software [postman](https://www.postman.com/downloads/). Antes de iniciar esta serie de pasos, asegúrese de haber ejecutado cada microservicio en VS code, como se indica en la sección [¿Cómo ejecutar la aplicación?](#¿cómo-ejecutar-la-aplicación).
+Para verificar el adecuado funcionamiento de las APIs creadas, se puede usar el software [postman](https://www.postman.com/downloads/). Antes de iniciar esta serie de pasos, asegúrese de haber ejecutado cada microservicio del backend en VS code, como se indica en los pasos del 1 al 5 de la sección [¿Cómo ejecutar la aplicación?](#¿cómo-ejecutar-la-aplicación).
 
 1. Ingrese a la aplicación postman y seleccione **Create new collection** en la esquina superior izquierda
 
-<p align="center"><img width="800" src="assets/backend/postman/nuevaColeccion.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/nuevaColeccion.png"></p>
 
 2. Aparecerá su nueva colección en el menú de la izquierda, al lado del nombre de su nueva colección seleccione los 3 puntos y dé click en **Add Request**
 
-<p align="center"><img width="800" src="assets/backend/postman/addRequest.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/addRequest.png"></p>
 
 3. En la parte superior seleccione **GET**, en la barra de direcciones escriba la siguiente URL:
 ```http://localhost:65230/saludar```
 A continuación, repita los pasos 2 y 3, pero esta vez creando un request **POST**
 
-<p align="center"><img width="800" src="assets/backend/postman/get.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/get.png"></p>
 
 4. Para probar el funcionamiento de las llamadas **POST** al microservicio de saludo, ingrese al request y seleccione la pestaña **Body**, diligencie los campos de la tabla:
 - KEY: Saludo
@@ -274,11 +262,11 @@ A continuación, repita los pasos 2 y 3, pero esta vez creando un request **POST
 
 Dé click en el botón **Send**, si el request se completa de manera correcta aparecerá el mensaje OK en la terminal.
 
-<p align="center"><img width="800" src="assets/backend/postman/postTest.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/postTest.png"></p>
 
 5. Para probar el funcionamiento de las llamadas **GET** al microservicio de saludo, ingrese al request y dé click en el botón **Send**. Si el request se completa de manera correcta, en la terminal aparecerá el texto que incluyó en el post que realizó en el paso anterior.
 
-<p align="center"><img width="800" src="assets/backend/postman/getTest.png"></p>
+<p align="center"><img width="600" src="assets/backend/postman/getTest.png"></p>
 
 6. Para probar el microervicio de despedida, se realiza de la misma forma, dé click en los 3 puntos al lado del nombre de su colección y seleccione **Add request**. En la parte superior seleccione **GET**, en la barra de direcciones escriba la siguiente URL:
 ```http://localhost:65232/adios```
@@ -294,7 +282,77 @@ Dé click en el botón **Send**, si el request se completa de manera correcta ap
 8. Para probar el funcionamiento de las llamadas **GET** al microservicio de despedida, ingrese al request y dé click en el botón **Send**. Si el request se completa de manera correcta, en la terminal aparecerá el texto que incluyó en el post que realizó en el paso anterior.
 
 ## Desarrollo del FrontEnd
+A continuación se completará el frontend de la aplicación. Debido a la cantidad de código usada en el frontend, en este caso no se creará el proyecto desde cero, se completará la interfaz usando elementos ya existentes, y se crearán desde cero dos elementos que interactúan con las APIs del microservicio **bye_service**. Para garantizar el correcto funcionamiento de la aplicación, ejecute los dos microservicios del backend, así como el frontend, como se indica en la sección [¿Cómo ejecutar la aplicación?](#¿cómo-ejecutar-la-aplicación).
 
+### Adición de elementos a la interfaz
+1. Luego de haber ejecutado el frontend, se debió abrir una página web en el navegador. Si no fue así, ingresa a 
+
+```
+http://localhost:3000/
+```
+
+Allí deberás ver una pantalla azul:
+<p align="center"><img width="800" src="assets/frontend/1fondo.png"></p>
+
+2. En VS code, ingresa a la ruta ```frontend > src > App.js```, este es el archivo que contiene la estructura de la página web. Lo primero que haremos será agregar un encabezado, para ello agregue la siguiente línea de código justo debajo de la línea 13, que contiene el texto ```<ChatProvider>```:
+
+```
+<Header/>
+```
+
+3. Ahora al volver al navegador, le deberá aparecer el encabezado recién añadido. (Si desea cambiar el texto, ingrese al archivo ```Header.jsx``` que se encuentra en la carpeta **components**)
+
+<p align="center"><img width="800" src="assets/frontend/2header.png"></p>
+
+4. A continuación, agregaremos el contenido de la página web. Los formularios para ingresar texto se pondrán dentro de un contenedor con un elemento de tipo **Card**, para ello, incluya este elemento en su código, debajo de la línea ```<Header/>```:
+
+```
+    <div className='container'>
+    <Card>
+    </Card>
+    </div>
+```
+
+<p align="center"><img width="800" src="assets/frontend/3card.png"></p>
+
+5. Dentro del elemento **Card**, agregue el formulario de envío del texto saludo. Este formulario envía el texto agregado al microservicio **hello_service** por medio de una API post. Agregue el siguiente código justo debajo de la etiqueta ```<Card>```:
+
+```
+<ChatForm />
+```
+
+6. En este momento en el navegador debe tener lo que se presenta en la imagen. (Si desea cambiar el texto del enunciado o el texto por defecto, ingrese al archivo ```ChatForm.jsx``` que se encuentra en la carpeta **components**)
+
+<p align="center"><img width="800" src="assets/frontend/4form.png"></p>
+
+7. Ahora agregaremos el botón de Saludo, el cual recibirá el texto a mostrar por medio de una API get enviada al microservicio **hello_service**. Inserte el siguiente código justo debajo de la línea ```<ChatForm />```:
+
+```
+    <div className='btn-send'> 
+          <BtnSubmit />
+    </div>
+```
+
+<p align="center"><img width="800" src="assets/frontend/5button.png"></p>
+
+8. En este momento el botón sirve, pero no está mostrando nada en pantalla porque falta agregar el elemento que genera la lista de chats. Para agregarlo, incluya la siguiente etiqueta justo debajo del final del elemento **Card**, que contiene el texto ```</Card>```
+
+```
+      <ChatList chat = {chat} />
+```
+
+<p align="center"><img width="800" src="assets/frontend/6list.png"></p>
+
+9. Para probar el adecuado funcionamiento de las APIs, puede modificar el texto en el formulario, dar click al botón **Enviar** (que modifica la variable con una API post) y posteriormente click al botón **Saludo** (que obtiene el valor de la variable con una API get):
+
+<p align="center"><img width="800" src="assets/frontend/7test.png"></p>
+
+
+### Creación de elementos que interactúan con APIs
+
+En este momento, a la aplicación web le hacen falta los dos elementos correspondientes a las APIs que se comunican con el microservicio **bye_service** del backend. Esto será lo que realizaremos en esta sección.
+
+1. 
 
 
 ## Despliegue de la Aplicación
