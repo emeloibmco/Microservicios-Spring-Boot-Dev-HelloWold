@@ -23,20 +23,6 @@ export const ChatProvider = ({children}) => {
         //console.log(text)
     }
 
-    const getHola = async () => {
-        const response = await fetch(`http://localhost:65230/saludar`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            mode: 'no-cors',
-        } )
-        //data = await response.json()
-        const data = 'Holiwi'
-        setTextHola(data)
-        console.log(data)
-    }
-
     const addAdios = async(text) => {
         const response = await fetch(`http://localhost:65232/adios?Despedida=${text}`, {
             method: 'POST',
@@ -63,7 +49,6 @@ export const ChatProvider = ({children}) => {
             addHola,
             addAdios,
             addChat,
-            getHola,
         }}>
             {children}
         </ChatContext.Provider>

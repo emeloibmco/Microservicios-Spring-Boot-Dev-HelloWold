@@ -404,7 +404,7 @@ Dentro de la sección **Card**, incluya la siguiente línea de código justo deb
 <ChatAdios />
 ```
 
-3. Al volver a la página web, aparecerá un error ```addAdios is not defined```. Por ello, procederemos a crear la llamada API post. Ingrese al archivo ```frontend > src > components > context > ChatContext.js```, y debajo de la línea 24 (que termina la función addHola) ingrese el siguiente fragmento de código:
+3. Al volver a la página web, aparecerá un error ```addAdios is not defined```. Por ello, procederemos a crear la llamada API post. Ingrese al archivo ```frontend > src > context > ChatContext.js```, y debajo de la línea 24 (que termina la función addHola) ingrese el siguiente fragmento de código:
 
 ```
     const addAdios = async(text) => {
@@ -419,6 +419,12 @@ Dentro de la sección **Card**, incluya la siguiente línea de código justo deb
 
         //setTextAdios(text)
     }
+```
+
+Adicionalmente, al final del código en la sección return, agregue la siguiente línea debajo de ```addHola,```
+
+```
+addAdios,
 ```
 
 Esta función que acaba de agregar, se encarga de enviar el texto almacenado en la variable **text** hacia el microservicio **bye_service** en el backend, por medio de una llamada API post. Note que se incluye el puerto que se configuró para el microservicio previamente, así como el nombre de la variable string que se tiene en el backend (Despedida). Comentada se encuentra una línea de código que sirve para realizar pruebas sin ejecutar el backend.
